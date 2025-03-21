@@ -58,18 +58,22 @@ def get_livros():
         cursor = conn.cursor()
         cursor.execute("SELECT id, titulo, categoria, autor, image_url FROM LIVROS")
         livros = cursor.fetchall()
-
-    livros_json = [
+        
+        livros_json = [
         {
             "id": livro[0],
             "titulo": livro[1],
             "categoria": livro[2],
             "autor": livro[3],
-            "image_url": livro[4],
+            "image_url": livro[4]
         }
         for livro in livros
     ]
     return jsonify(livros_json)
+
+
+
+
 
 
 
